@@ -1,0 +1,7 @@
+{
+  "note": "Frozen before the first held-out run. Dev used corpus.DEV (forms full/first/folded/initial/upper_last/handle/email; Gmail, Slack, Jira, Notion), companies 1-20. Held-out: 20 new companies, a Teams export (\"Last, First\" display names), nicknames in greetings and messages (Lena for Hélène, Nico for Nicolas...), hyphenated-first-name initials (\"JM Martin\"). The anonymizer was never run on any of these.",
+  "seeds": [501, 520],
+  "cfg": {"forms": ["full", "first", "folded", "initial", "upper_last", "handle", "email", "comma", "nick", "initials"],
+          "tools": ["teams"],
+          "nicks": {"Hélène": "Lena", "Nicolas": "Nico", "Margaux": "Margot", "Camille": "Cam", "Jérôme": "Jéjé", "Antoine": "Toine", "Élodie": "Lodie"}}
+}
