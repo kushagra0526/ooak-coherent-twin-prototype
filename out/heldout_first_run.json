@@ -1,0 +1,33 @@
+{
+ "set": "heldout",
+ "companies": 20,
+ "results": {
+  "regex": {
+   "leaked": 4424,
+   "original": 5692,
+   "ok": 282,
+   "checks": 695
+  },
+  "perdoc": {
+   "leaked": 32,
+   "original": 5692,
+   "ok": 33,
+   "checks": 695
+  },
+  "twin": {
+   "leaked": 32,
+   "original": 5692,
+   "ok": 695,
+   "checks": 695
+  }
+ },
+ "twin_leaks": {
+  "Nico": 11,
+  "Lodie": 5,
+  "Margot": 4,
+  "Lena": 4,
+  "Jéjé": 3,
+  "Toine": 3,
+  "Cam": 2
+ }
+}

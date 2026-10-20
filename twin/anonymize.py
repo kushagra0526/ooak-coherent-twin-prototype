@@ -66,7 +66,11 @@ class Mapper:
                      (p["last"], ql)]
             if first_count[ids.fold(p["first"]).lower()] == 1:
                 pairs += [(p["first"], qf), (ids.fold(p["first"]), ids.fold(qf))]
-            self.rules += pairs
+            seen = set()
+            for o, n in pairs:                                     # unaccented names: keep the accented pseudonym form
+                if o not in seen:
+                    seen.add(o)
+                    self.rules.append((o, n))
         for f, n in first_count.items():                       # shared first names: one neutral stand-in, no leak
             if n > 1:
                 self.rules += [(form, "Alex") for form in accented[f]]
@@ -76,8 +80,10 @@ class Mapper:
         self.rules.append((project, "PRJ"))
         self.rules.append((project.lower(), "prj"))
         self.rules.sort(key=lambda x: -len(x[0]))
+        self.lookup = {}
+        for o, n in self.rules:
+            self.lookup.setdefault(o, n)                           # first rule for a surface form wins
         self.pat = re.compile("|".join(r"(?<![\w@.])" + re.escape(o) + r"(?![\w])" for o, _ in self.rules))
-        self.lookup = {o: n for o, n in self.rules}
         self.shift = 7 * rng.randint(-20, 20) or 7
         self.scale = rng.uniform(0.7, 1.4)
         self.idmap = {}
